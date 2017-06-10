@@ -1,9 +1,11 @@
 package treciaPaskaita;
 
+import java.util.Comparator;
+
 /**
  * Created by andriusbaltrunas on 6/8/2017.
  */
-public class Person {
+public class Person{
     private String name;
     private String surname;
     private String city;
@@ -15,6 +17,21 @@ public class Person {
         this.city = city;
         this.age = age;
     }
+
+
+    public static Comparator<Person> sortByName = new Comparator<Person>() {
+        @Override
+        public int compare(Person o1, Person o2) {
+            return o1.getName().compareTo(o2.getName());
+        }
+    };
+
+    public static Comparator<Person> sorBySurname = new Comparator<Person>() {
+        @Override
+        public int compare(Person o1, Person o2) {
+            return o1.getSurname().compareTo(o2.getSurname());
+        }
+    };
 
     public String getName() {
         return name;
@@ -41,4 +58,5 @@ public class Person {
                 ", age=" + age +
                 '}';
     }
+
 }
