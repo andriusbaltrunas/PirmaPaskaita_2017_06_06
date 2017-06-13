@@ -38,7 +38,6 @@ public class JdbcUtils {
     }
 
     public static void printResultSet(ResultSet resultSet){
-
         try {
             ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
             while(resultSet.next()){
@@ -46,7 +45,6 @@ public class JdbcUtils {
                 for(int i = 1; i< resultSetMetaData.getColumnCount();i++){
                     sb.append(resultSetMetaData.getColumnName(i)).append("=")
                             .append(resultSet.getObject(i)).append(" ");
-
                 }
                 System.out.println(sb.toString());
             }
