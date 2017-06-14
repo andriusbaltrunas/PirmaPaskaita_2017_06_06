@@ -14,6 +14,9 @@ public class MyMainApp {
 
 
         Connection connection = JdbcUtils.getConnection();
+        if(JdbcUtils.isTableExist(connection, "students")){
+            System.out.println("Students lentele yra sukurta!!!!");
+        }
         /*try {
             connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/kcs", "root", "MySQL");
         } catch (SQLException e) {

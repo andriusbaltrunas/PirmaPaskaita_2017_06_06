@@ -52,4 +52,18 @@ public class JdbcUtils {
             e.printStackTrace();
         }
     }
+
+    public static boolean isTableExist(Connection connection, String tableName){
+        boolean isTableExist = false;
+        if(connection != null && StringUtils.isNotBlank(tableName)){
+            try {
+                DatabaseMetaData metaData = connection.getMetaData();
+                ResultSet resultSet = metaData.getTables(null, null, tableName, null);
+                isTableExist = resultSet.next();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return isTableExist;
+    }
 }
